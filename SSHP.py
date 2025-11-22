@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Streamlit version of StudyHourPredictor (Minimal Version)"""
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, LogisticRegression
@@ -29,7 +26,7 @@ def add_bg_from_local(image_file):
 st.markdown("""
 <style>
 div[data-baseweb="slider"] {
-    width: 56% !important;   /* reduce overall slider width */
+    width: 56% !important;  
     margin: ;
 }
 </style>
@@ -102,10 +99,10 @@ if st.button("Predict"):
         pred_time = time_model.predict(features)[0]
         time_dict = {1: "Morning", 2: "Evening", 3: "Night"}
 
-        # --- Show Results ---
         st.success(f"Predicted Focus Score: {pred_focus:.2f}")
         st.success(f"Predicted Productivity Score: {pred_productivity:.2f}")
         st.info(f"Suggested Best Study Time: {time_dict.get(pred_time, 'Unknown')}")
 
   
+
 
