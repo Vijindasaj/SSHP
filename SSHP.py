@@ -37,7 +37,7 @@ div[data-baseweb="slider"] {
 
 
 
-add_bg_from_local(r"C:\Users\ACER\Desktop\APP\back.png")
+add_bg_from_local("back.png")
 
 
 warnings.filterwarnings("ignore", message="X does not have valid feature names")
@@ -100,3 +100,4 @@ if st.button("Predict"):
         st.success(f"Predicted Focus Score: {pred_focus:.2f}")
         st.success(f"Predicted Productivity Score: {pred_productivity:.2f}")
         st.info(f"Suggested Best Study Time: {time_dict.get(pred_time, 'Unknown')}")
+
