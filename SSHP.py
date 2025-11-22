@@ -40,7 +40,7 @@ div[data-baseweb="slider"] {
 
 
 
-add_bg_from_local(r"C:\Users\ACER\Desktop\APP\back.png")  # <-- Replace with your image filename
+add_bg_from_local("back.png") 
 
 
 warnings.filterwarnings("ignore", message="X does not have valid feature names")
@@ -108,3 +108,4 @@ if st.button("Predict"):
         st.info(f"Suggested Best Study Time: {time_dict.get(pred_time, 'Unknown')}")
 
   
+
