@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Streamlit version of StudyHourPredictor (Minimal Version)"""
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, LogisticRegression
@@ -23,21 +26,18 @@ def add_bg_from_local(image_file):
         """,
         unsafe_allow_html=True
     )
+
 st.markdown("""
 <style>
 div[data-baseweb="slider"] {
-    width: 56% !important;  
-    margin: ;
+    width: 56% !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
 
 
-
-
-
-add_bg_from_local("back.png") 
+add_bg_from_local(r"C:\Users\ACER\Desktop\APP\back.png")
 
 
 warnings.filterwarnings("ignore", message="X does not have valid feature names")
@@ -73,19 +73,16 @@ time_model.fit(X_train_c, y_train_c)
 st.subheader("Make Predictions")
 
 
-Sleep_Hours = st.text_input("😴 Hours of Sleep :", "7")
-Mobile_Use_Hours = st.text_input("📱 Hours of Mobile Use :", "3")
-Study_Time_Hours = st.text_input("📖 Hours of Study :", "4")
-
-
-
-
-
+# --- FIXED INPUTS (ONLY CHANGE MADE) ---
+Sleep_Hours = float(st.text_input("😴 Hours of Sleep :", "7"))
+Mobile_Use_Hours = float(st.text_input("📱 Hours of Mobile Use :", "3"))
+Study_Time_Hours = float(st.text_input("📖 Hours of Study :", "4"))
 
 
 if st.button("Predict"):
-    total_hours = Sleep_Hours + Mobile_Use_Hours + Study_Time_Hours
-    
+
+    total_hours = Sleep_Hours + Mobile_Use_Hours + Study_Time_Hours  # now numeric
+
     if total_hours > 24:
         st.warning("⚠️ The total of Sleep, Mobile Use, and Study hours cannot exceed 24 hours!")
     else:
@@ -99,10 +96,7 @@ if st.button("Predict"):
         pred_time = time_model.predict(features)[0]
         time_dict = {1: "Morning", 2: "Evening", 3: "Night"}
 
+        # --- Show Results ---
         st.success(f"Predicted Focus Score: {pred_focus:.2f}")
         st.success(f"Predicted Productivity Score: {pred_productivity:.2f}")
         st.info(f"Suggested Best Study Time: {time_dict.get(pred_time, 'Unknown')}")
-
-  
-
-
