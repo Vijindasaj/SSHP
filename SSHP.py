@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 """Streamlit version of StudyHourPredictor (Minimal Version)"""
 
 import pandas as pd
@@ -73,7 +73,7 @@ time_model.fit(X_train_c, y_train_c)
 st.subheader("Make Predictions")
 
 
-# --- FIXED INPUTS (ONLY CHANGE MADE) ---
+
 Sleep_Hours = float(st.text_input("😴 Hours of Sleep :", "7"))
 Mobile_Use_Hours = float(st.text_input("📱 Hours of Mobile Use :", "3"))
 Study_Time_Hours = float(st.text_input("📖 Hours of Study :", "4"))
@@ -96,8 +96,9 @@ if st.button("Predict"):
         pred_time = time_model.predict(features)[0]
         time_dict = {1: "Morning", 2: "Evening", 3: "Night"}
 
-        # --- Show Results ---
+        
         st.success(f"Predicted Focus Score: {pred_focus:.2f}")
         st.success(f"Predicted Productivity Score: {pred_productivity:.2f}")
         st.info(f"Suggested Best Study Time: {time_dict.get(pred_time, 'Unknown')}")
+
 
