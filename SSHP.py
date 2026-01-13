@@ -1,6 +1,3 @@
-
-"""Streamlit version of StudyHourPredictor (Minimal Version)"""
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, LogisticRegression
@@ -100,5 +97,6 @@ if st.button("Predict"):
         st.success(f"Predicted Focus Score: {pred_focus:.2f}")
         st.success(f"Predicted Productivity Score: {pred_productivity:.2f}")
         st.info(f"Suggested Best Study Time: {time_dict.get(pred_time, 'Unknown')}")
+
 
 
